@@ -40,6 +40,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'pry'
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
