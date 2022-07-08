@@ -16,6 +16,15 @@ module Types
     def get_user(id:)
       User.find(id)
     end
+   
+    field :get_user_daily_records, [Types::DailyRecordType], null: false, description: 'Returns a single user daily_records by id' do
+      argument :user_id, ID, required: true
+    end
+
+
+    def get_user_daily_records(user_id:)
+      DailyRecord.where('user_id = ?', user_id)
+    end
 
   end
 end
