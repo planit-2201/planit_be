@@ -1,13 +1,11 @@
 class User < ApplicationRecord
   validates_presence_of :username, :flowrate
-
   validates_numericality_of :flowrate
-
   has_many :daily_records, foreign_key: :user_id, dependent: :destroy
 
-  def weekly_average_shower_time(date)
-    range = find_weekly_range(date)
-    DailyRecord.where(:date => range)
+  def weekly_average_shower_time(end_date)
+    range = find_weekly_range(end_date)
+    daily_records.where(date: range).average(:shower_time)
   end
 
   private
@@ -16,6 +14,6 @@ class User < ApplicationRecord
     end_date = DateTime.parse(date)
     start_date = end_date-6
     range = start_date..end_date
-    range.map {|d| d.strftime "%m-%d-%Y"}
+    range.map {|d| d.strftime "%Y-%m-%d"}
   end
 end
