@@ -3,16 +3,15 @@ require 'rails_helper'
 module Mutations
   module DailyRecords
     RSpec.describe CreateDailyRecord, type: :request do
+      let!(:user) {create(:user, id: 4, username: "Mike Dao", flowrate: 1.8)}
       describe '.resolve' do
         it "creates a daily record" do
-          create(:user, id: 1, username: "Mike Dao", flowrate: 1.8)
           expect(DailyRecord.count).to eq(0)
           post '/graphql', params: { query: query }
           expect(DailyRecord.count).to eq(1)
         end
 
         it "returns a daily record" do
-          create(:user, id: 1, username: "Mike Dao", flowrate: 1.8)
           post '/graphql', params: { query: query }
           json = JSON.parse(response.body, symbolize_names: true)
           data = json[:data][:createDailyRecord]
@@ -30,7 +29,7 @@ module Mutations
           createDailyRecord(
           input: {
             date: "2202-07-09"
-            userId: 1
+            userId: 4
             bagCount: 3
             containerCount: 1
             strawCount: 0

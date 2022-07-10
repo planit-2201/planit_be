@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Types::QueryType do
   describe 'display user daily records' do
     it "can query a user daily records" do
-      user = create(:user, id: 1, username: "Mike Dao", flowrate: 1.8)
+      user = create(:user, id: 2, username: "Mike Dao", flowrate: 1.8)
 
       user.daily_records.create(date: "2022-07-09", bag_count: 3, container_count: 4, straw_count: 6, shower_time: 0)
       result = PlanitBeSchema.execute(query).as_json
@@ -18,7 +18,7 @@ RSpec.describe Types::QueryType do
 
   def query
     <<~GQL
-    { getUserDailyRecords(userId: "1")
+    { getUserDailyRecords(userId: "2")
       {
         date
         bagCount
