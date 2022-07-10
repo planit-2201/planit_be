@@ -41,6 +41,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rspec_junit_formatter'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -48,6 +49,6 @@ group :development do
   # gem "spring"
 end
 
-group :test do 
+group :test do
   gem 'simplecov'
 end

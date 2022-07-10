@@ -1,3 +1,7 @@
 class User < ApplicationRecord
-  has_many :daily_records, dependent: :destroy
+  validates_presence_of :username, :flowrate
+
+  validates_numericality_of :flowrate
+
+  has_many :daily_records, foreign_key: :user_id, dependent: :destroy
 end
