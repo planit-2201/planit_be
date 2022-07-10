@@ -13,7 +13,6 @@ class User < ApplicationRecord
   def find_weekly_range(date)
     end_date = DateTime.parse(date)
     start_date = end_date-6
-    range = start_date..end_date
-    range.map {|d| d.strftime "%Y-%m-%d"}
+    (start_date..end_date).map {|d| d.strftime "%Y-%m-%d"}
   end
 end
