@@ -12,7 +12,7 @@ module Mutations
       def resolve(attributes)
         user_id = attributes[:user_id]
         user = User.find(user_id)
-        DailyRecord.create(attributes)
+        user.daily_records.create(attributes)
       end
     end
   end

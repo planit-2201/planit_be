@@ -76,6 +76,13 @@ GEM
     digest (3.1.0)
     docile (1.4.0)
     erubi (1.10.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    faker (2.21.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     graphql (2.0.11)
@@ -174,6 +181,8 @@ GEM
     rspec-support (3.11.0)
     rspec_junit_formatter (0.5.1)
       rspec-core (>= 2, < 4, != 2.12.0)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -198,6 +207,8 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  factory_bot_rails
+  faker
   graphql
   pg (~> 1.1)
   pry
@@ -206,6 +217,7 @@ DEPENDENCIES
   rails (~> 7.0.3)
   rspec-rails (~> 4.0.1)
   rspec_junit_formatter
+  shoulda-matchers
   simplecov
   tzinfo-data
 
