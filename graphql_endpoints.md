@@ -1,13 +1,14 @@
-# GraphQL
+## GraphQL
 
 Our GraphQL endpoints have two categories: queries and mutations.
 
-## Queries
+### Queries
 
-1. getUser(id: ID) finds a specific user in the Database
+1. getUser(id: ID) *finds a specific user in the Database*
 
 * Example Query
 
+```
 {
   getUser(id: "1") {
     id
@@ -15,9 +16,11 @@ Our GraphQL endpoints have two categories: queries and mutations.
     flowrate
   }
 }
+```
 
 * Example Response
 
+```
 { "data": {
   "getUser": {
     "username": "Scott Drybread"
@@ -25,3 +28,10 @@ Our GraphQL endpoints have two categories: queries and mutations.
   }
   }
 }
+```
+
+2. getUserDailyRecords(user_id:) *finds daily records for a scpecific user*
+
+* Example Query
+
+
