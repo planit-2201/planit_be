@@ -4,11 +4,11 @@ module Mutations
   module DailyRecords
     RSpec.describe CreateDailyRecord, type: :request do
       describe '.resolve' do
-        xit "creates a daily record" do
+        it "creates a daily record" do
           create(:user, id: 1, username: "Mike Dao", flowrate: 1.8)
-          expect(DailyRecords.count).to eq(0)
+          expect(DailyRecord.count).to eq(0)
           post '/graphql', params: { query: query }
-          expect(DailyRecords.count).to eq(1)
+          expect(DailyRecord.count).to eq(1)
         end
 
         it "returns a daily record" do
