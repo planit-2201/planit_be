@@ -14,6 +14,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
     id
     username
     flowrate
+    weeklyAverageShowerTime
   }
 }
 ```
@@ -25,6 +26,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
   "getUser": {
     "username": "Scott Drybread"
     "flowrate": 1.8
+    "weeklyAverageShowerTime": 125.0
   }
   }
 }
@@ -50,15 +52,59 @@ Our GraphQL endpoints have two categories: queries and mutations.
 * Example Response
 
 ```
-{ "data": {
-  "getUserDailyRecords": {
-    "date": "2022-07-10"
-    "bagCount": 3
-    "containerCount": 2
-    "strawCount": 3
-    "showerTime": 500
-  }
-  }
+{
+    "data": {
+        "getUserDailyRecords": [
+            {
+                "date": "2022-07-07",
+                "bagCount": 3,
+                "containerCount": 2,
+                "strawCount": 0,
+                "userId": 1,
+                "showerTime": 0
+            },
+            {
+                "date": "2022-07-08",
+                "bagCount": 3,
+                "containerCount": 2,
+                "strawCount": 0,
+                "userId": 1,
+                "showerTime": 0
+            },
+            {
+                "date": "Mon Apr 29 2019",
+                "bagCount": 3,
+                "containerCount": 3,
+                "strawCount": 2,
+                "userId": 1,
+                "showerTime": 500
+            },
+            {
+                "date": "2022-07-09",
+                "bagCount": 3,
+                "containerCount": 3,
+                "strawCount": 2,
+                "userId": 1,
+                "showerTime": 500
+            },
+            {
+                "date": "2022-07-09",
+                "bagCount": 3,
+                "containerCount": 3,
+                "strawCount": 2,
+                "userId": 1,
+                "showerTime": 500
+            },
+            {
+                "date": "2022-07-10",
+                "bagCount": 3,
+                "containerCount": 3,
+                "strawCount": 2,
+                "userId": 1,
+                "showerTime": 500
+            }
+        ]
+    }
 }
 ```
 
