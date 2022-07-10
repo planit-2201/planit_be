@@ -5,21 +5,22 @@ module Mutations
     RSpec.describe CreateDailyRecord, type: :request do
       describe '.resolve' do
         xit "creates a daily record" do
+          create(:user, id: 1, username: "Mike Dao", flowrate: 1.8)
           expect(DailyRecords.count).to eq(0)
           post '/graphql', params: { query: query }
           expect(DailyRecords.count).to eq(1)
         end
 
         it "returns a daily record" do
+          create(:user, id: 1, username: "Mike Dao", flowrate: 1.8)
           post '/graphql', params: { query: query }
           json = JSON.parse(response.body, symbolize_names: true)
-          data = json['data']
-          require "pry"; binding.pry
-          expect(data['daily_records']['date']).to eq("2202-07-09")
-          expect(data['daily_records']['bag_count']).to eq(3)
-          expect(data['daily_records']['container_count']).to eq(1)
-          expect(data['daily_records']['straw_count']).to eq(0)
-          expect(data['daily_records']['shower_time']).to eq(500)
+          data = json[:data][:createDailyRecord]
+          expect(data[:date]).to eq("2202-07-09")
+          expect(data[:bagCount]).to eq(3)
+          expect(data[:containerCount]).to eq(1)
+          expect(data[:strawCount]).to eq(0)
+          expect(data[:showerTime]).to eq(500)
         end
       end
 
@@ -29,17 +30,19 @@ module Mutations
           createDailyRecord(
           input: {
             date: "2202-07-09"
-            bag_count: 3
-            container_count: 1
-            straw_count: 0
-            shower_time: 500
+            userId: 1
+            bagCount: 3
+            containerCount: 1
+            strawCount: 0
+            showerTime: 500
           }
           ) {
             date
-            bag_count
-            container_count
-            straw_count
-            shower_time
+            userId
+            bagCount
+            containerCount
+            strawCount
+            showerTime
             }
           }
         GQL
