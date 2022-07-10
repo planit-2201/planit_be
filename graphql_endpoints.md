@@ -14,6 +14,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
     id
     username
     flowrate
+    weeklyAverageShowerTime
   }
 }
 ```
@@ -25,6 +26,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
   "getUser": {
     "username": "Scott Drybread"
     "flowrate": 1.8
+    "weeklyAverageShowerTime": 125.0
   }
   }
 }
