@@ -72,22 +72,6 @@ Our GraphQL endpoints have two categories: queries and mutations.
                 "showerTime": 0
             },
             {
-                "date": "Mon Apr 29 2019",
-                "bagCount": 3,
-                "containerCount": 3,
-                "strawCount": 2,
-                "userId": 1,
-                "showerTime": 500
-            },
-            {
-                "date": "2022-07-09",
-                "bagCount": 3,
-                "containerCount": 3,
-                "strawCount": 2,
-                "userId": 1,
-                "showerTime": 500
-            },
-            {
                 "date": "2022-07-09",
                 "bagCount": 3,
                 "containerCount": 3,
