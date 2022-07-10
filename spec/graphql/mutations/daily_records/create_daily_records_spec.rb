@@ -6,9 +6,10 @@ module Mutations
       let!(:user) {create(:user, id: 4, username: "Mike Dao", flowrate: 1.8)}
       describe '.resolve' do
         it "creates a daily record" do
-          expect(DailyRecord.count).to eq(0)
+          count = DailyRecord.count
           post '/graphql', params: { query: query }
-          expect(DailyRecord.count).to eq(1)
+          new_count = count+1
+          expect(DailyRecord.count).to eq(new_count)
         end
 
         it "returns a daily record" do
