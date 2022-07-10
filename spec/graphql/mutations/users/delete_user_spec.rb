@@ -7,9 +7,11 @@ module Mutations
           create_list(:user, 3)
           create(:user, id: 121)
           users = User.all
-          expect(User.count).to eq(4)
+          count = User.count
+          expect(User.count).to eq(count)
           post '/graphql', params: {query: query}
-          expect(User.count).to eq(3)
+          new_count = count-1
+          expect(User.count).to eq(new_count)
         end
         def query
           <<~GQL
