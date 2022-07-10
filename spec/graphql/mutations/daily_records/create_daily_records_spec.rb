@@ -3,7 +3,7 @@ require 'rails_helper'
 module Mutations
   module DailyRecords
     RSpec.describe CreateDailyRecord, type: :request do
-      let!(:user) {create(:user, id: 4, username: "Mike Dao", flowrate: 1.8)}
+      let!(:user) {create(:user, username: "Mike Dao", flowrate: 1.8)}
       describe '.resolve' do
         it "creates a daily record" do
           count = DailyRecord.count
@@ -30,7 +30,7 @@ module Mutations
           createDailyRecord(
           input: {
             date: "2202-07-09"
-            userId: 4
+            userId: #{User.last.id}
             bagCount: 3
             containerCount: 1
             strawCount: 0

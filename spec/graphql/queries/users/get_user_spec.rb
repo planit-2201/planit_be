@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Types::QueryType do
   describe 'display user' do
     it "can query a single user" do
-      create(:user, id: 1, username: 'Mike Dao', flowrate: 1.8)
+      create(:user, username: 'Mike Dao', flowrate: 1.8)
 
       result = PlanitBeSchema.execute(query).as_json
       expect(result["data"]["getUser"]["username"]).to eq('Mike Dao')
@@ -14,7 +14,7 @@ RSpec.describe Types::QueryType do
   def query
     <<~GQL
     {
-      getUser(id: "1")
+      getUser(id: #{User.last.id})
       {
         username
         flowrate
