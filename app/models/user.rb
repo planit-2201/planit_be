@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates_numericality_of :flowrate
   has_many :daily_records, foreign_key: :user_id, dependent: :destroy
 
-  def weekly_average_shower_time(end_date)
+  def weekly_average_shower_time(end_date = Time.now.strftime("%Y-%m-%d"))
     range = find_weekly_range(end_date)
     daily_records.where(date: range).average(:shower_time)
   end
