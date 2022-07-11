@@ -62,5 +62,17 @@ RSpec.describe User, type: :model do
 
       expect(user.thirtyday_average_shower_time("2022-07-11")).to eq(351)
     end
+    
+    it '.returns weekly average water usage' do
+      user = create(:user, username: "Mike Dao", flowrate: 1.8)
+      user.daily_records.create(date: "2022-07-05", shower_time: 300)
+      user.daily_records.create(date: "2022-07-06", shower_time: 400)
+      user.daily_records.create(date: "2022-07-07", shower_time: 300)
+      user.daily_records.create(date: "2022-07-08", shower_time: 200)
+      user.daily_records.create(date: "2022-07-09", shower_time: 200)
+      user.daily_records.create(date: "2022-07-10", shower_time: 200)
+      user.daily_records.create(date: "2022-07-11", shower_time: 200)
+      expect(user.weekly_average_water_usage("2022-07-11")).to eq(7.71)
+    end
   end
 end

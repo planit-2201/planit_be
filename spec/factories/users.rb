@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
     username { Faker::FunnyName.name }
-    flowrate { Faker::Number.decimal(l_digits: 1) }
+    flowrate { [1.8, 2.1, 2.5].sample }
   end
 end

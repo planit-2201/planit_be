@@ -1,9 +1,8 @@
 FactoryBot.define do
-  factory :daily_records do
-    date { String(Faker::Date.in_date_period) }
-    bag_count { Faker::Number.number(digits: 2) }
-    container_count { Faker::Number.number(digits: 2) }
-    straw_count { Faker::Number.number(digits: 2) }
-    shower_time { Faker::Number.number(digits: 3) }
+  factory :daily_record do
+    bag_count { (0..5).to_a.sample }
+    container_count { (0..3).to_a.sample }
+    straw_count { (0..2).to_a.sample }
+    shower_time { (180..1000).to_a.append(0).sample}
   end
 end
