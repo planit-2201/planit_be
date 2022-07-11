@@ -35,7 +35,6 @@ RSpec.describe User, type: :model do
       user.daily_records.create(date: "2022-07-09", shower_time: 200)
       user.daily_records.create(date: "2022-07-10", shower_time: 200)
       user.daily_records.create(date: "2022-07-11", shower_time: 200)
-
       expect(user.weekly_average_water_usage("2022-07-11")).to eq(7.71)
     end
   end

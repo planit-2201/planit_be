@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   def weekly_average_water_usage(end_date = Time.now.strftime("%Y-%m-%d"))
     minutes = weekly_average_shower_time(end_date)/60
-    (User.find(id).flowrate * minutes.to_f).round(2)
+    (flowrate * minutes.to_f).round(2)
   end
 
   private
