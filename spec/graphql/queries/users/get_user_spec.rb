@@ -9,12 +9,15 @@ RSpec.describe Types::QueryType do
       user.daily_records.create(date: "2022-07-05", shower_time: 400)
       user.daily_records.create(date: "2022-07-07", shower_time: 200)
       avg_time = user.weekly_average_shower_time("2022-07-09")
+      thirtyday_avg_time = user.thirtyday_average_shower_time("2022-07-09")
       allow(user).to receive(:weekly_average_shower_time).and_return(avg_time)
+      allow(user).to receive(:thirtyday_average_shower_time).and_return(thirtyday_avg_time)
 
       result = PlanitBeSchema.execute(query).as_json
       expect(result["data"]["getUser"]["username"]).to eq('Mike Dao')
       expect(result["data"]["getUser"]["flowrate"]).to eq(1.8)
       expect(result["data"]["getUser"]["weeklyAverageShowerTime"]).to eq(300.0)
+      expect(result["data"]["getUser"]["thirtydayAverageShowerTime"]).to eq(300.0)
     end
   end
 
@@ -26,6 +29,7 @@ RSpec.describe Types::QueryType do
         username
         flowrate
         weeklyAverageShowerTime
+        thirtydayAverageShowerTime
       }
     }
     GQL
