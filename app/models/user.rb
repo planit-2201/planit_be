@@ -8,6 +8,11 @@ class User < ApplicationRecord
     daily_records.where(date: range).average(:shower_time)
   end
 
+  def weekly_average_water_usage(end_date = Time.now.strftime("%Y-%m-%d"))
+    minutes = weekly_average_shower_time(end_date)/60
+    (flowrate * minutes.to_f).round(2)
+  end
+
   private
 
   def find_weekly_range(date)
