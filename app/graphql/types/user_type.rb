@@ -8,9 +8,14 @@ module Types
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :weekly_average_shower_time, Float
+    field :weekly_average_water_usage, Float
 
     def weekly_average_shower_time
       object.weekly_average_shower_time
+    end
+
+    def weekly_average_water_usage
+      object.weekly_average_water_usage
     end
   end
 end
