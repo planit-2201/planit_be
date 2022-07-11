@@ -1,6 +1,10 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do 
+  add_filter 'app/controllers/graphql_controller.rb'
+  add_filter 'app/graphql/planit_be_schema.rb'
+end
+
 
 require 'faker'
 
