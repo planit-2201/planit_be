@@ -42,7 +42,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
 
 ```
 { 
- getUserDailyRecords(userId: #{User.last.id})
+ getUserDailyRecords(userId: "33")
    {
      date
      bagCount
@@ -101,7 +101,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
 
 ```
 query {
-    getUserDailyRecord(userId: 44, date: "2022-07-09") {
+    getUserDailyRecord(userId: "44", date: "2022-07-09") {
      date
      bagCount
      containerCount
