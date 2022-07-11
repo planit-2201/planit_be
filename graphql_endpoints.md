@@ -53,42 +53,42 @@ Our GraphQL endpoints have two categories: queries and mutations.
 
 ```
 {
-    "data": {
-        "getUserDailyRecords": [
-            {
-                "date": "2022-07-07",
-                "bagCount": 3,
-                "containerCount": 2,
-                "strawCount": 0,
-                "userId": 1,
-                "showerTime": 0
-            },
-            {
-                "date": "2022-07-08",
-                "bagCount": 3,
-                "containerCount": 2,
-                "strawCount": 0,
-                "userId": 1,
-                "showerTime": 0
-            },
-            {
-                "date": "2022-07-09",
-                "bagCount": 3,
-                "containerCount": 3,
-                "strawCount": 2,
-                "userId": 1,
-                "showerTime": 500
-            },
-            {
-                "date": "2022-07-10",
-                "bagCount": 3,
-                "containerCount": 3,
-                "strawCount": 2,
-                "userId": 1,
-                "showerTime": 500
-            }
-        ]
-    }
+  "data": {
+      "getUserDailyRecords": [
+          {
+             "date": "2022-07-07"
+             "bagCount": 3
+             "containerCount": 2
+             "strawCount": 0
+             "userId": 1
+             "showerTime": 0
+          },
+          {
+             "date": "2022-07-08"
+             "bagCount": 3
+             "containerCount": 2
+             "strawCount": 0
+             "userId": 1
+             "showerTime": 0
+          },
+          {
+             "date": "2022-07-09"
+             "bagCount": 3
+             "containerCount": 3
+             "strawCount": 2
+             "userId": 1
+             "showerTime": 500
+          },
+          {
+             "date": "2022-07-10"
+             "bagCount": 3
+             "containerCount": 3
+             "strawCount": 2
+             "userId": 1
+             "showerTime": 500
+          }
+      ]
+   }
 }
 ```
 
@@ -101,42 +101,9 @@ Our GraphQL endpoints have two categories: queries and mutations.
 ```
 mutation {
   createUser(input: {
-  username: "new user"
-  flowrate: 2.5
-  }) {
-  username
-  flowrate
-  }
-}
-```
-
-* Example Response
-
-```
-{
-"data": {
-  "createUser": {
-  "userId": 2
-  "username": "new user",
-  "flowrate": 2.5
-  }
-  }
-}
-```
-
-2. updateUser(CreateUserInput) *allow users to update username and flowrate*
-
-* Example Query
-
-```
-mutation {
-  updateUser(input: {
-  id: 1
-  username: "new user name"
-  flowrate: 2.5
-  }) {
-  username
-  flowrate
+    username: "new user"
+    flowrate: 2.5
+    })
   }
 }
 ```
@@ -146,12 +113,133 @@ mutation {
 ```
 {
   "data": {
-  "updateUser": {
-  "username": "new user name",
-  "flowrate": 2.5
-  }
+    "createUser": {
+      "userId": 2
+      "username": "new user"
+      "flowrate": 2.5
+    }
   }
 }
 ```
 
-3.
+2. updateUser(UpdateUserInput) *allow users to update username and flowrate*
+
+* Example Query
+
+```
+mutation {
+  updateUser(input: {
+     id: 1
+     username: "new user name"
+     flowrate: 2.5
+     })
+}
+```
+
+* Example Response
+
+```
+{
+  "data": {
+    "updateUser": {
+    "username": "new user name",
+    "flowrate": 2.5
+    }
+  }
+}
+```
+
+3. deleteUser(DeleteUserInput) *delete a user and corresponding daily records*
+
+* Example Query
+
+```
+mutation {
+    deleteUser(
+      input:{
+      id: "1" })
+      {
+      name
+    }
+}
+```
+
+* Example Response
+
+```
+{
+  "data": {
+    "deleteUser": {
+    "name": "Scott Drybread"
+    }
+  }
+}
+```
+
+4. createDailyRecord(CreateDailyRecordInput) *allow users to create daily record info*
+
+* Example Query
+
+```
+mutation {
+   createDailyRecord(input: {
+      date:"2022-07-10"
+      userId: 1
+      bagCount: 3
+      containerCount:3
+      strawCount:2
+      showerTime:500
+      })
+}
+```
+
+* Example Response
+
+```
+{
+  "data": {
+    "createDailyRecord": {
+      "date": "2022-07-10",
+      "userId": 1,
+      "bagCount": 3,
+      "containerCount": 3,
+      "strawCount": 2,
+      "showerTime": 500
+    }
+  }
+}
+```
+
+5. updateDailyRecord(UpdateDailyRecordInput) *allow users to update daily record*
+
+* Example Query
+
+```
+mutation {
+    updateDailyRecord(input: {
+        date:"2022-07-09"
+        userId: 1
+        bagCount: 5
+        containerCount: 3
+        strawCount: 2
+        showerTime: 500
+        })
+}
+```
+
+* Example Response
+
+```
+{
+  "data": {
+    "updateDailyRecord": {
+      "date": "2022-07-09",
+      "userId": 1,
+      "bagCount": 5,
+      "containerCount": 3,
+      "strawCount": 2,
+      "showerTime": 500
+    }
+  }
+}
+```
