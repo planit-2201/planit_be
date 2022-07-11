@@ -13,7 +13,6 @@ class User < ApplicationRecord
     seconds = daily_records.where(date: range).sum(:shower_time)
     minutes = seconds/60
     User.find(id).flowrate * minutes
-    # require 'pry'; binding.pry
   end
 
   private
