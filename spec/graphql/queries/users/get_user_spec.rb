@@ -23,7 +23,7 @@ RSpec.describe Types::QueryType do
       expect(result["data"]["getUser"]["username"]).to eq('Mike Dao')
       expect(result["data"]["getUser"]["flowrate"]).to eq(1.8)
       expect(result["data"]["getUser"]["weeklyAverageShowerTime"]).to eq(257.14285714285717)
-      expect(result["data"]["getUser"]["weeklyAverageWaterUsage"]).to eq(54)
+      expect(result["data"]["getUser"]["weeklyAverageWaterUsage"]).to eq(7.71)
     end
   end
 
