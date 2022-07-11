@@ -19,14 +19,14 @@ RSpec.describe Types::QueryType do
       expect(result["data"]["getUser"]["username"]).to eq('Mike Dao')
       expect(result["data"]["getUser"]["flowrate"]).to eq(1.8)
       expect(result["data"]["getUser"]["weeklyAverageShowerTime"]).to eq(250.0)
-      expect(result["data"]["getUser"]["weeklyAverageWaterUsage"]).to eq(51)
+      expect(result["data"]["getUser"]["weeklyAverageWaterUsage"]).to eq(54)
     end
   end
 
 # sum shower time from the previous 7 days - 1,800 seconds, 30 minutes
 # convert sum to minutes - 30 minutes
 # multiply flow rate (gallons/ per minute) by minutes - 30 minutes
-# return product of fr x min as a float - 51 gallons
+# return product of fr x min as a float - 54 gallons
 
   def query
     <<~GQL
