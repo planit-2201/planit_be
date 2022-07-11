@@ -5,16 +5,16 @@ class User < ApplicationRecord
 
   def weekly_average_shower_time(end_date = Time.now.strftime("%Y-%m-%d"))
     range = find_weekly_range(end_date)
-    daily_records.where(date: range).average(:shower_time)
+    daily_records.where(date: range).average(:shower_time).round
   end
 
   def thirtyday_average_shower_time(end_date = Time.now.strftime("%Y-%m-%d"))
     range = find_thirtyday_range(end_date)
-    daily_records.where(date: range).average(:shower_time).round
+    (daily_records.where(date: range).average(:shower_time)).round
   end
   
   def weekly_average_water_usage(end_date = Time.now.strftime("%Y-%m-%d"))
-    minutes = weekly_average_shower_time(end_date)/60
+    minutes = weekly_average_shower_time(end_date).to_f/60
     (flowrate * minutes.to_f).round(2)
   end
 
