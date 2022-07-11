@@ -8,11 +8,22 @@ class User < ApplicationRecord
     daily_records.where(date: range).average(:shower_time)
   end
 
+  def thirtyday_average_shower_time(end_date = Time.now.strftime("%Y-%m-%d"))
+    range = find_thirtyday_range(end_date)
+    daily_records.where(date: range).average(:shower_time).round
+  end
+
   private
 
   def find_weekly_range(date)
     end_date = DateTime.parse(date)
     start_date = end_date-6
+    (start_date..end_date).map {|d| d.strftime "%Y-%m-%d"}
+  end
+
+  def find_thirtyday_range(date)
+    end_date = DateTime.parse(date)
+    start_date = end_date-29
     (start_date..end_date).map {|d| d.strftime "%Y-%m-%d"}
   end
 end
