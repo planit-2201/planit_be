@@ -26,5 +26,15 @@ module Types
       DailyRecord.where('user_id = ?', user_id)
     end
 
+    field :get_user_daily_record, [Types::DailyRecordType], null: false, description: 'Returns a single user daily_record on a specific day' do
+      argument :user_id, ID, required: true
+      argument :date, String, required: true
+    end
+
+
+    def get_user_daily_record(user_id:, date:)
+      DailyRecord.where('user_id = ? AND date=?', user_id, date)
+    end
+
   end
 end
