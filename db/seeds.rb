@@ -5,22 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-scott = User.create!(
-  username: "Scott Drybread",
-  flowrate: 1.8
-)
+User.destroy_all
 
-scott.daily_records.create!(
-  date: '2022-07-07',
-  bag_count: 3,
-  straw_count: 0,
-  container_count: 2,
-  shower_time: 0
-)
-scott.daily_records.create!(
-  date: '2022-07-08',
-  bag_count: 3,
-  straw_count: 0,
-  container_count: 2,
-  shower_time: 0
-)
+usernames = ['Scott Drybread', 'Kim Brewmeister', 'Chris Ocean', 'Craig Mountain', 'Nikki B', 'Rachel H', 'Zach S', 'Olivia W']
+end_date = DateTime.parse(Time.now.to_s)
+dates = ((end_date-29)..end_date).map {|d| d.strftime "%Y-%m-%d"}
+
+users = usernames.map {|name| FactoryBot.create(:user, username: name)}
+users.each do |user|
+  dates.each do |date|
+    FactoryBot.create(:daily_record, user_id: user.id, date: date )
+  end
+end
