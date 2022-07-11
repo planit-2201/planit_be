@@ -86,7 +86,7 @@ GEM
     globalid (1.0.0)
       activesupport (>= 5.0)
     graphql (2.0.11)
-    i18n (1.10.0)
+    i18n (1.11.0)
       concurrent-ruby (~> 1.0)
     loofah (2.18.0)
       crass (~> 1.0.2)
@@ -225,4 +225,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.3.11
+   2.3.15
