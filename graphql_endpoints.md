@@ -36,7 +36,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
 }
 ```
 
-2. getUserDailyRecords(user_id:) *finds daily records for a scpecific user*
+2. getUserDailyRecords(user_id:) *finds all daily records for a scpecific user*
 
 * Example Query
 
@@ -95,7 +95,41 @@ Our GraphQL endpoints have two categories: queries and mutations.
    }
 }
 ```
+3. getUserDailyRecord(user_id:, date:) *finds one daily record for a scpecific user on a given date (String)
 
+* Example Query
+
+```
+query {
+    getUserDailyRecord(userId: 44, date: "2022-07-09") {
+     date
+     bagCount
+     containerCount
+     strawCount
+     userId
+     showerTime
+    }
+  }
+```
+
+* Example Response
+
+```
+{
+    "data": {
+        "getUserDailyRecord": [
+            {
+                "date": "2022-07-09",
+                "bagCount": 3,
+                "containerCount": 3,
+                "strawCount": 2,
+                "userId": 44,
+                "showerTime": 692
+            }
+        ]
+    }
+}
+```
 ### Mutations
 
 1. createUser(CreateUserInput) *allow users to create account with username and flowrate*
