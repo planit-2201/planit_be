@@ -6,8 +6,10 @@ RSpec.describe Types::QueryType do
       user = create(:user, username: "Mike Dao", flowrate: 1.8)
 
       user.daily_records.create(date: "2022-07-09", bag_count: 3, container_count: 4, straw_count: 6, shower_time: 0)
+      user.daily_records.create(date: "2022-07-10", bag_count: 5, container_count: 0, straw_count: 0, shower_time: 100)
+      
       result = PlanitBeSchema.execute(query).as_json
-
+      expect(result['data']['getUserDailyRecords'].count).to eq(2)
       expect(result['data']['getUserDailyRecords'][0]['date']).to eq("2022-07-09")
       expect(result['data']['getUserDailyRecords'][0]['bagCount']).to eq(3)
       expect(result['data']['getUserDailyRecords'][0]['containerCount']).to eq(4)
