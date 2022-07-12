@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Types::QueryType do
   before :each do
     @user = create(:user, username: 'Mike Dao', flowrate: 1.8)
-    end_date = DateTime.parse("2022-7-11")
+    end_date = DateTime.parse(Time.now.strftime("%Y-%m-%d"))
     dates = ((end_date-29)..end_date).map {|d| d.strftime "%Y-%m-%d"}
     dates[0..9].each {|date| FactoryBot.create(:daily_record, user_id: @user.id, date: date, shower_time: 200 )}
     dates[10..19].each {|date| FactoryBot.create(:daily_record, user_id: @user.id, date: date, shower_time: 300 )}
@@ -19,8 +19,8 @@ RSpec.describe Types::QueryType do
 
     it 'returns weeklyAverageShowerTime' do
       result = PlanitBeSchema.execute(query).as_json
-      avg_time = @user.weekly_average_shower_time("2022-07-11")
-      allow(@user).to receive(:weekly_average_shower_time).and_return(avg_time)
+      # avg_time = @user.weekly_average_shower_time("2022-07-11")
+      # allow(@user).to receive(:weekly_average_shower_time).and_return(avg_time)
 
       expect(result["data"]["getUser"]["weeklyAverageShowerTime"]).to eq(400.0)
 
@@ -28,16 +28,16 @@ RSpec.describe Types::QueryType do
 
     it 'returns thirtydayAverageShowerTime' do
       result = PlanitBeSchema.execute(query).as_json
-      thirtyday_avg_time = @user.thirtyday_average_shower_time("2022-07-11")
-      allow(@user).to receive(:thirtyday_average_shower_time).and_return(thirtyday_avg_time)
+      # thirtyday_avg_time = @user.thirtyday_average_shower_time("2022-07-11")
+      # allow(@user).to receive(:thirtyday_average_shower_time).and_return(thirtyday_avg_time)
 
       expect(result["data"]["getUser"]["thirtydayAverageShowerTime"]).to eq(300.0)
     end
 
     it 'returns weeklyAverageWaterUsage' do
       result = PlanitBeSchema.execute(query).as_json
-      avg_time = @user.weekly_average_shower_time("2022-07-11")
-      allow(@user).to receive(:weekly_average_shower_time).and_return(avg_time)
+      # avg_time = @user.weekly_average_shower_time("2022-07-11")
+      # allow(@user).to receive(:weekly_average_shower_time).and_return(avg_time)
 
       expect(result["data"]["getUser"]["weeklyAverageShowerTime"]).to eq(400.0)
       expect(result["data"]["getUser"]["weeklyAverageWaterUsage"]).to eq(12.0)
@@ -45,8 +45,8 @@ RSpec.describe Types::QueryType do
 
     it 'returns thirtydayAverageWaterUsage' do
       result = PlanitBeSchema.execute(query).as_json
-      thirtyday_avg_time = @user.thirtyday_average_shower_time("2022-07-11")
-      allow(@user).to receive(:thirtyday_average_shower_time).and_return(thirtyday_avg_time)
+      # thirtyday_avg_time = @user.thirtyday_average_shower_time("2022-07-11")
+      # allow(@user).to receive(:thirtyday_average_shower_time).and_return(thirtyday_avg_time)
 
       expect(result["data"]["getUser"]["thirtydayAverageShowerTime"]).to eq(300.0)
       expect(result["data"]["getUser"]["thirtydayAverageWaterUsage"]).to eq(9.0)
