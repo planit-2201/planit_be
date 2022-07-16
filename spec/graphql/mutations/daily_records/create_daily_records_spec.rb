@@ -18,7 +18,7 @@ module Mutations
           data = json[:data][:createDailyRecord]
           expect(data[:date]).to eq("2202-07-09")
           expect(data[:bagCount]).to eq(3)
-          expect(data[:containerCount]).to eq(1)
+          expect(data[:bottleCount]).to eq(1)
           expect(data[:strawCount]).to eq(0)
           expect(data[:showerTime]).to eq(500)
         end
@@ -32,7 +32,7 @@ module Mutations
             date: "2202-07-09"
             userId: #{User.last.id}
             bagCount: 3
-            containerCount: 1
+            bottleCount: 1
             strawCount: 0
             showerTime: 500
           }
@@ -40,7 +40,7 @@ module Mutations
             date
             userId
             bagCount
-            containerCount
+            bottleCount
             strawCount
             showerTime
             }
