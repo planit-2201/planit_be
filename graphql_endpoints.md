@@ -276,7 +276,7 @@ mutation {
       "date": "2022-07-09",
       "userId": 1,
       "bagCount": 5,
-      "bottle'Count": 3,
+      "bottleCount": 3,
       "strawCount": 2,
       "showerTime": 500
     }
