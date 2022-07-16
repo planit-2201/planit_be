@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe AppDatum, type: :model do
    describe 'instance methods' do
     before :each do
+      User.destroy_all
       @users = create_list(:user, 5, flowrate: 2.1)
       end_date = DateTime.parse(Time.now.strftime("%Y-%m-%d"))
       dates = ((end_date-29)..end_date).map {|d| d.strftime "%Y-%m-%d"}
