@@ -97,7 +97,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
    }
 }
 ```
-3. getUserDailyRecord(user_id:, date:) *finds one daily record for a scpecific user on a given date (String)
+3. getUserDailyRecord(user_id:, date:) *finds one daily record for a scpecific user on a given date (String)*
 
 * Example Query
 
