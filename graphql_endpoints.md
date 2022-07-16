@@ -48,7 +48,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
    {
      date
      bagCount
-     containerCount
+     bottleCount
      strawCount
      showerTime
    }
@@ -64,7 +64,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
           {
              "date": "2022-07-07"
              "bagCount": 3
-             "containerCount": 2
+             "bottleCount": 2
              "strawCount": 0
              "userId": 1
              "showerTime": 0
@@ -72,7 +72,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
           {
              "date": "2022-07-08"
              "bagCount": 3
-             "containerCount": 2
+             "bottleCount": 2
              "strawCount": 0
              "userId": 1
              "showerTime": 0
@@ -80,7 +80,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
           {
              "date": "2022-07-09"
              "bagCount": 3
-             "containerCount": 3
+             "bottleCount": 3
              "strawCount": 2
              "userId": 1
              "showerTime": 500
@@ -88,7 +88,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
           {
              "date": "2022-07-10"
              "bagCount": 3
-             "containerCount": 3
+             "bottleCount": 3
              "strawCount": 2
              "userId": 1
              "showerTime": 500
@@ -106,7 +106,7 @@ query {
     getUserDailyRecord(userId: "44", date: "2022-07-09") {
      date
      bagCount
-     containerCount
+     bottleCount
      strawCount
      userId
      showerTime
@@ -123,7 +123,7 @@ query {
             {
                 "date": "2022-07-09",
                 "bagCount": 3,
-                "containerCount": 3,
+                "bottleCount": 3,
                 "strawCount": 2,
                 "userId": 44,
                 "showerTime": 692
@@ -226,7 +226,7 @@ mutation {
       date:"2022-07-10"
       userId: 1
       bagCount: 3
-      containerCount:3
+      bottleCount:3
       strawCount:2
       showerTime:500
       })
@@ -242,7 +242,7 @@ mutation {
       "date": "2022-07-10",
       "userId": 1,
       "bagCount": 3,
-      "containerCount": 3,
+      "bottleCount": 3,
       "strawCount": 2,
       "showerTime": 500
     }
@@ -260,7 +260,7 @@ mutation {
         date:"2022-07-09"
         userId: 1
         bagCount: 5
-        containerCount: 3
+        bottleCount: 3
         strawCount: 2
         showerTime: 500
         })
@@ -276,7 +276,7 @@ mutation {
       "date": "2022-07-09",
       "userId": 1,
       "bagCount": 5,
-      "containerCount": 3,
+      "bottle'Count": 3,
       "strawCount": 2,
       "showerTime": 500
     }
