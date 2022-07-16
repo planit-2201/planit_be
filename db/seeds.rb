@@ -19,7 +19,7 @@ users.each do |user|
   end
 end
 
-dummy_users = FactoryBot.create_list(:user, 250)
+dummy_users = FactoryBot.create_list(:user, 250, username: 'botuser')
 dummy_users.each do |user|
   FactoryBot.create(:daily_record, user_id: user.id, date: dates[0])
   FactoryBot.create(:daily_record, user_id: user.id, date: dates[10])
