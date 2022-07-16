@@ -1,3 +1,4 @@
+require 'faker'
 FactoryBot.define do
   factory :user do
     username { 'Faker::FunnyName.name' }
