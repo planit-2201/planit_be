@@ -13,8 +13,12 @@ RSpec.describe AppDatum, type: :model do
       end
       @result = PlanitBeSchema.execute(query).as_json
     end
-    it '.returns total number of users' do
+    it 'returns total number of users' do
       expect(@result["data"]["getAppData"]["userCount"]).to eq(10)
+    end
+
+    it 'returns 30 day average water usage' do
+      expect(@result["data"]["getAppData"]["thirtydayAverageWaterUsage"]).to eq(7.0)
     end
   end
 
@@ -24,6 +28,7 @@ RSpec.describe AppDatum, type: :model do
       getAppData
       {
         userCount
+        thirtydayAverageWaterUsage
       }
     }
     GQL
