@@ -25,15 +25,16 @@ Our GraphQL endpoints have two categories: queries and mutations.
 * Example Response
 
 ```
-{ "data": {
-  "getUser": {
-    "username": "Scott Drybread"
-    "flowrate": 1.8
-    "weeklyAverageShowerTime": 535.0
-    "weeklyAverageWaterUsage": 16.05
-    "thirtydayAverageShowerTime": 568.0
-    "thirtydayAverageWaterUsage": 17.04
-  }
+{ 
+  "data": {
+    "getUser": {
+      "username": "Scott Drybread"
+      "flowrate": 1.8
+      "weeklyAverageShowerTime": 535.0
+      "weeklyAverageWaterUsage": 16.05
+      "thirtydayAverageShowerTime": 568.0
+      "thirtydayAverageWaterUsage": 17.04
+    }
   }
 }
 ```
@@ -104,12 +105,12 @@ Our GraphQL endpoints have two categories: queries and mutations.
 ```
 query {
     getUserDailyRecord(userId: "44", date: "2022-07-09") {
-     date
-     bagCount
-     bottleCount
-     strawCount
-     userId
-     showerTime
+       date
+       bagCount
+       bottleCount
+       strawCount
+       userId
+       showerTime
     }
   }
 ```
@@ -118,20 +119,59 @@ query {
 
 ```
 {
-    "data": {
-        "getUserDailyRecord": [
-            {
-                "date": "2022-07-09",
-                "bagCount": 3,
-                "bottleCount": 3,
-                "strawCount": 2,
-                "userId": 44,
-                "showerTime": 692
-            }
-        ]
-    }
+  "data": {
+      "getUserDailyRecord": [
+          {
+            "date": "2022-07-09",
+            "bagCount": 3,
+            "bottleCount": 3,
+            "strawCount": 2,
+            "userId": 44,
+            "showerTime": 692
+          }
+      ]
+  }
 }
 ```
+
+4. getAppData *finds total number of users in app*
+
+* Sample Data *(using FactoryBot)*
+```
+users = create_list(:user, 5, flowrate: 2.1)
+end_date = DateTime.parse(Time.now.strftime("%Y-%m-%d"))
+dates = ((end_date-29)..end_date).map {|d| d.strftime "%Y-%m-%d"}
+users.each do |user|
+  create(:daily_record, user_id: user.id, date: dates[0], shower_time: 100)
+  create(:daily_record, user_id: user.id, date: dates[10], shower_time: 200)
+  create(:daily_record, user_id: user.id, date: dates[20], shower_time: 300)
+end
+```
+
+* Example Query
+
+```
+query {
+    getAppData {
+        userCount
+        thirtydayAverageWaterUsage
+    }
+ }
+```
+
+* Example Response
+
+```
+{ 
+  "data": {
+    "getAppData": {
+        "userCount": 5
+        "thirtydayAverageWaterUsage": 7.0
+     }
+   }
+}
+```
+
 ### Mutations
 
 1. createUser(CreateUserInput) *allow users to create account with username and flowrate*
