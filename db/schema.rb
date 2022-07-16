@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_10_205213) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_16_151959) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "daily_records", force: :cascade do |t|
     t.string "date"
     t.integer "bag_count", default: 0
-    t.integer "container_count", default: 0
+    t.integer "bottle_count", default: 0
     t.integer "straw_count", default: 0
     t.integer "shower_time", default: 0
     t.datetime "created_at", null: false
