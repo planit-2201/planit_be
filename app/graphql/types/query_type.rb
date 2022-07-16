@@ -36,5 +36,14 @@ module Types
       DailyRecord.where('user_id = ? AND date=?', user_id, date)
     end
 
+    field :get_app_data, Types::AppDataType, null:false, description: 'Returns total number of users in app'
+    
+    def get_app_data
+      if AppDatum.first 
+        AppDatum.first 
+      else
+        AppDatum.create
+      end
+    end
   end
 end

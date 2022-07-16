@@ -3,6 +3,6 @@ FactoryBot.define do
     bag_count { (0..5).to_a.sample }
     bottle_count { (0..3).to_a.sample }
     straw_count { (0..2).to_a.sample }
-    shower_time { (180..1000).to_a.append(0).sample}
+    shower_time { (180..290).to_a.append(0).sample}
   end
 end
