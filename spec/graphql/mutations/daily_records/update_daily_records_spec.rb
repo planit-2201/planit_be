@@ -8,7 +8,7 @@ module Mutations
       describe '.resolve' do
         
         it "updates a daily record" do
-          user.daily_records.create!(date: "2022-07-10", bag_count: 1, container_count: 2, straw_count: 3, shower_time: 500)
+          user.daily_records.create!(date: "2022-07-10", bag_count: 1, bottle_count: 2, straw_count: 3, shower_time: 500)
           post '/graphql', params: { query: query }
           json = JSON.parse(response.body, symbolize_names: true)
           data = json[:data][:updateDailyRecord]
@@ -17,7 +17,7 @@ module Mutations
 
           expect(updated_daily_record.date).to eq("2022-07-09")
           expect(updated_daily_record.bag_count).to eq(2)
-          expect(updated_daily_record.container_count).to eq(3)
+          expect(updated_daily_record.bottle_count).to eq(3)
           expect(updated_daily_record.straw_count).to eq(4)
           expect(updated_daily_record.shower_time).to eq(700)
         end
@@ -31,7 +31,7 @@ module Mutations
             userId: #{user.id}
             date: "2022-07-09"
             bagCount: 2
-            containerCount: 3
+            bottleCount: 3
             strawCount: 4
             showerTime: 700
           }
@@ -39,7 +39,7 @@ module Mutations
             userId
             date
             bagCount
-            containerCount
+            bottleCount
             strawCount
             showerTime
             }

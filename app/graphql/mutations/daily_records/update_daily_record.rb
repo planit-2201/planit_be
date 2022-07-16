@@ -6,7 +6,7 @@ module Mutations
       argument :shower_time, Integer, required: true
       argument :bag_count, Integer, required: true
       argument :straw_count, Integer, required: true
-      argument :container_count, Integer, required: true
+      argument :bottle_count, Integer, required: true
       
       type Types::DailyRecordType
 
