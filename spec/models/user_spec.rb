@@ -112,5 +112,42 @@ RSpec.describe User, type: :model do
 
       expect(user.thirtyday_average_water_usage("2022-07-11")).to eq(10.53)
     end
+
+    it '.returns 30 day average bottle count' do
+      user = create(:user, username: "Mike Dao", flowrate: 1.8)
+      user.daily_records.create(date: "2022-07-01", bottle_count: 3)
+      user.daily_records.create(date: "2022-07-02", bottle_count: 4)
+      user.daily_records.create(date: "2022-07-03", bottle_count: 1)
+      user.daily_records.create(date: "2022-07-04", bottle_count: 2)
+      user.daily_records.create(date: "2022-07-05", bottle_count: 5)
+      user.daily_records.create(date: "2022-07-06", bottle_count: 4)
+      user.daily_records.create(date: "2022-07-07", bottle_count: 3)
+      user.daily_records.create(date: "2022-07-08", bottle_count: 5)
+      user.daily_records.create(date: "2022-07-09", bottle_count: 3)
+      user.daily_records.create(date: "2022-07-10", bottle_count: 4)
+      user.daily_records.create(date: "2022-07-11", bottle_count: 1)
+      user.daily_records.create(date: "2022-06-12", bottle_count: 2)
+      user.daily_records.create(date: "2022-06-13", bottle_count: 5)
+      user.daily_records.create(date: "2022-06-14", bottle_count: 4)
+      user.daily_records.create(date: "2022-06-15", bottle_count: 3)
+      user.daily_records.create(date: "2022-06-16", bottle_count: 3)
+      user.daily_records.create(date: "2022-06-17", bottle_count: 3)
+      user.daily_records.create(date: "2022-06-18", bottle_count: 4)
+      user.daily_records.create(date: "2022-06-19", bottle_count: 1)
+      user.daily_records.create(date: "2022-06-20", bottle_count: 2)
+      user.daily_records.create(date: "2022-06-21", bottle_count: 5)
+      user.daily_records.create(date: "2022-06-22", bottle_count: 4)
+      user.daily_records.create(date: "2022-06-23", bottle_count: 3)
+      user.daily_records.create(date: "2022-06-24", bottle_count: 5)
+      user.daily_records.create(date: "2022-06-25", bottle_count: 6)
+      user.daily_records.create(date: "2022-06-26", bottle_count: 3)
+      user.daily_records.create(date: "2022-06-27", bottle_count: 4)
+      user.daily_records.create(date: "2022-06-28", bottle_count: 1)
+      user.daily_records.create(date: "2022-06-29", bottle_count: 2)
+      user.daily_records.create(date: "2022-06-30", bottle_count: 5)
+      user.daily_records.create(date: "2022-06-11", bottle_count: 1000)
+
+      expect(user.thirtyday_average_bottle_count("2022-07-11")).to eq(3)
+    end
   end
 end

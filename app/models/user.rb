@@ -23,6 +23,11 @@ class User < ApplicationRecord
     (flowrate * minutes.to_f).round(2)
   end
 
+  def thirtyday_average_bottle_count(end_date = Time.now.strftime("%Y-%m-%d"))
+    range = find_thirtyday_range(end_date)
+    daily_records.where(date: range).average(:bottle_count).round
+  end
+
   private
 
   def find_weekly_range(date)
