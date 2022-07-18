@@ -5,7 +5,7 @@ class AppDatum < ApplicationRecord
 
   def thirtyday_average_shower_time(end_date = Time.now.strftime("%Y-%m-%d"))
     range = find_thirtyday_range(end_date)
-    (DailyRecord.where(date: range).group(:user_id).average(:shower_time)).values.sum.round
+    DailyRecord.where(date: range).group(:user_id).average(:shower_time)
   end
 
   def thirtyday_average_water_usage(end_date = Time.now.strftime("%Y-%m-%d"))
@@ -15,8 +15,7 @@ class AppDatum < ApplicationRecord
 
   def thirtyday_average_bottle_count(end_date = Time.now.strftime("%Y-%m-%d"))
     range = find_thirtyday_range(end_date)
-    # require "pry"; binding.pry
-    (DailyRecord.where(date: range).group(:user_id).average(:bottle_count)).values.sum.round
+    DailyRecord.where(date: range).average(:bottle_count).to_f
   end
 
   private

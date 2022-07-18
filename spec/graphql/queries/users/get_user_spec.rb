@@ -37,7 +37,7 @@ RSpec.describe Types::QueryType do
     end
 
     it 'returns thirtydayAverageBottleCount' do
-      expect(@result["data"]["getUser"]["thirtydayAverageBottleCount"]).to eq(300.0)
+      expect(@result["data"]["getUser"]["thirtydayAverageBottleCount"]).to eq(4.0)
     end
   end
 

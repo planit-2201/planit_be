@@ -23,8 +23,7 @@ RSpec.describe Types::QueryType do
   end
 
   it 'returns 30 day average bottle count' do
-    # require "pry"; binding.pry
-    expect(@result["data"]["getAppData"]["thirtydayAverageBottleCount"]).to eq(7.0)
+    expect(@result["data"]["getAppData"]["thirtydayAverageBottleCount"]).to eq(4.0)
   end
 
   def query
