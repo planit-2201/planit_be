@@ -21,6 +21,17 @@ RSpec.describe Types::QueryType do
     expect(@result["data"]["getAppData"]["thirtydayAverageWaterUsage"]).to eq(7.0)
   end
 
+#   Add/update to getAppData Query and allow retrieval app average 30 day straw usage:
+# --- query----
+# query {
+# getAppData {
+# thirtydayAverageStrawCount
+# }
+# }
+ it 'returns the app average for 30 days of straw usage' do
+    expect(@result["data"]["getAppData"]["thirtydayAverageStrawCount"]).to eq(.5)
+ end
+
   def query
     <<~GQL
     {
@@ -28,6 +39,7 @@ RSpec.describe Types::QueryType do
       {
         userCount
         thirtydayAverageWaterUsage
+        thirtydayAverageStrawCount
       }
     }
     GQL
