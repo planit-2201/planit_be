@@ -7,9 +7,9 @@ RSpec.describe Types::QueryType do
     end_date = DateTime.parse(Time.now.strftime("%Y-%m-%d"))
     dates = ((end_date-29)..end_date).map {|d| d.strftime "%Y-%m-%d"}
     users.each do |user|
-      create(:daily_record, user_id: user.id, date: dates[0], shower_time: 100)
-      create(:daily_record, user_id: user.id, date: dates[10], shower_time: 200)
-      create(:daily_record, user_id: user.id, date: dates[20], shower_time: 300)
+      create(:daily_record, user_id: user.id, date: dates[0], shower_time: 100, straw_count: 1)
+      create(:daily_record, user_id: user.id, date: dates[10], shower_time: 200, straw_count: 3)
+      create(:daily_record, user_id: user.id, date: dates[20], shower_time: 300, straw_count: 5)
     end
     @result = PlanitBeSchema.execute(query).as_json
   end
@@ -21,15 +21,8 @@ RSpec.describe Types::QueryType do
     expect(@result["data"]["getAppData"]["thirtydayAverageWaterUsage"]).to eq(7.0)
   end
 
-#   Add/update to getAppData Query and allow retrieval app average 30 day straw usage:
-# --- query----
-# query {
-# getAppData {
-# thirtydayAverageStrawCount
-# }
-# }
  it 'returns the app average for 30 days of straw usage' do
-    expect(@result["data"]["getAppData"]["thirtydayAverageStrawCount"]).to eq(.5)
+    expect(@result["data"]["getAppData"]["thirtydayAverageStrawCount"]).to eq(3.0)
  end
 
   def query
