@@ -14,6 +14,7 @@ class AppDatum < ApplicationRecord
   end
 
 
+  
   private 
   def find_thirtyday_range(date)
     end_date = DateTime.parse(date)

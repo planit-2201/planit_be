@@ -23,6 +23,10 @@ class User < ApplicationRecord
     (flowrate * minutes.to_f).round(2)
   end
 
+
+
+
+
   private
 
   def find_weekly_range(date)
