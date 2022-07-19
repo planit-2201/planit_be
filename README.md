@@ -29,13 +29,13 @@ See this [Deployment Guide](local_setup_guide.md) for detailed instructions on h
 
 PlanIt's Back-End dev team:
  - Kim Guo ([@kg-byte](https://github.com/kg-byte), [LinkedIn](https://www.linkedin.com/in/xiaole-guo-5331b4158/))
- - Craig Cardwell ([@Eagerlearn](https://github.com/Eagerlearn), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
+ - Craig Cardwell ([@Eagerlearn](https://github.com/Eagerlearn), [LinkedIn](https://www.linkedin.com/in/craiglcardwell/))
  - Chris Romero ([@CLRM1](https://github.com/CLRM1), [LinkedIn](https://www.linkedin.com/in/chris-romero-419702122/))
  - Scott Sullivan ([@ScottSullivanltd](https://github.com/ScottSullivanltd), [LinkedIn](https://linkedin.com/in/scott-sullivan-9394204a/))
 
 PlanIt's Front-End dev team:
  - Olivia Whitehead ([@whiteheadol](https://github.com/whiteheadol), [LinkedIn](https://www.linkedin.com/in/-olivia-whitehead/))
- - Rachel Hill ([@rachellhill](https://github.com/rachellhill), [LinkedIn](https://www.linkedin.com/in/rlew/))
+ - Rachel Hill ([@rachellhill](https://github.com/rachellhill), [LinkedIn](https://www.linkedin.com/https://www.linkedin.com/in/hillrachelli/))
  - Nikki Balmoori ([@nbalmoori](https://github.com/nbalmoori), [LinkedIn](https://www.linkedin.com/in/nbalmoori/))
  - Zachary Saile ([@zwsaile](https://github.com/zwsaile), [LinkedIn](https://www.linkedin.com/in/zachary-saile/))
 
@@ -61,20 +61,13 @@ Soon thereafter the team had [a "DTR" meeting](https://gist.github.com/DanielEFr
 
 ## Technologies & Architecture
 
-![Technology and Architecture Chart](https://user-images.githubusercontent.com/40702808/75644294-10828a00-5bff-11ea-801c-33c0e7b75691.png)
-
-- Hosting: Firebase (FE) and Heroku (BE, SMS)
+- Hosting: Firebase (FE) and Heroku (BE)
 - Database: PostgreSQL
 - Front-end: React & Redux
 - Back-end: Ruby on Rails
-- SMS Micro-service: Flask & Python
-- Testing: Jest (FE), RSpec (BE), and PyTest (SMS)
+- Testing: Jest (FE), RSpec (BE)
 - GraphQL: Apollo Client (FE) and GraphQL-Ruby (BE)
-- OAuth: Github via Firebase
-- SMS Notifications: Twilio
-- Email Notifications: Sendgrid
 - Background Workers: Sidekiq and Redis
-- Performance Tracking: Skylight
 
 ## React & Redux Tutorial
 
@@ -117,39 +110,21 @@ At date of project completion, the Paired 2.0 back-end service has 98% test cove
 
 ## GraphQL Endpoints
 
-Our GraphQL endpoints fall into three categories: queries, mutations, and filter queries. For detailed examples of all the endpoints and example responses, see our [GraphQL Endpoints Guide](graphql_endpoints.md) or click the specific query or mutation below to go its section.
+Our GraphQL endpoints fall into two categories: queries and mutations. For detailed examples of all the endpoints and example responses, see our [GraphQL Endpoints Guide](graphql_endpoints.md) or click the specific query or mutation below to go its section.
 
-To make live queries to the GraphQL endpoint and see live schema information, setup the back-end using the [local deployment instructions](local_setup_guide.md) and access GraphiQL at `http://localhost:3001/graphiql`.
+To make live queries to the GraphQL endpoint and see live schema information, setup the back-end using the [local deployment instructions](local_setup_guide.md).
 
 - Queries
   - [getUser](graphql_endpoints.md#get-user)
-  - [getUserByFirebaseID](graphql_endpoints.md#get-user-by-firebase-id)
-  - [getUserPairings](graphql_endpoints.md#get-user-pairings)
-  - [getUser](graphql_endpoints.md#get-user)
-  - [getPairings](graphql_endpoints.md#get-pairings)
-  - [getPairing](graphql_endpoints.md#get-pairing)
-  - [getUserStats](graphql_endpoints.md#get-user-stats)
+  - [getUserDailyRecords](graphql_endpoints.md#get-user-daily-records)
+  - [getUserDailyRecord](graphql_endpoints.md#get-user-daily-record)
+  - [getAppData](graphql_endpoints.md#get-app-data)
 - Mutations
   - [createUser](graphql_endpoints.md#create-user)
   - [updateUser](graphql_endpoints.md#update-user)
   - [deleteUser](graphql_endpoints.md#delete-user)
-  - [createPairings](graphql_endpoints.md#create-pairings)
-  - [updatePairings](graphql_endpoints.md#update-pairings)
-  - [deletePairing](graphql_endpoints.md#delete-pairing)
-  - [deletePairings](graphql_endpoints.md#delete-pairings)
-- Filter Queries
-  - [getPairing](graphql_endpoints.md#get-pairing)
-- Rock & Pebble Queries & Mutations
-  - Queries
-    - [getUserRockAndPebbles](graphql_endpoints.md#get-user-rocks-and-pebbles)
-  - Mutations
-    - [rockOptInOut](graphql_endpoints.md#rock-opt-in-out)
-    - [createRockPebbleRelationship](graphql_endpoints.md#create-rock-pebble-relationship)
-    - [activateRockPebbleRelationship](graphql_endpoints.md#activate-rock-pebble-relationship)
-    - [declineRockPebbleRelationship](graphql_endpoints.md#decline-rock-pebble-relationship)
-    - [discontinueRockPebbleRelationship](graphql_endpoints.md#discontinue-rock-pebble-relationship)
-  - Filter Queries
-    - [findAvailableRocks](graphql_endpoints.md#find-available-rocks)
+  - [createDailyRecord](graphql_endpoints.md#create-daily-record)
+  - [updateDailyRecord](graphql_endpoints.md#update-daily-record)
 
 ## Resource Credits
 
