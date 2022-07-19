@@ -33,6 +33,11 @@ class User < ApplicationRecord
     (daily_records.where(date: range).average(:bag_count)).to_f.round
   end
 
+  def thirtyday_average_straw_count(end_date = Time.now.strftime("%Y-%m-%d"))
+    range = find_thirtyday_range(end_date)
+    (daily_records.where(date: range)).average(:straw_count).to_f
+  end
+
   private
   def find_weekly_range(date)
     end_date = DateTime.parse(date)

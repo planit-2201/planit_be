@@ -45,7 +45,7 @@ RSpec.describe Types::QueryType do
     end
 
     it 'returns thirtydayUserAverageStrawCount' do
-       expect(@result["data"]["getUser"]["thirtydayUserAverageStrawCount"]).to eq(3.0)
+       expect(@result["data"]["getUser"]["thirtydayUserAverageStrawCount"]).to eq(2.0)
     end
   end
 
@@ -62,6 +62,7 @@ RSpec.describe Types::QueryType do
         thirtydayAverageWaterUsage
         thirtydayAverageBottleCount
         thirtydayAverageBagCount
+        thirtydayUserAverageStrawCount
       }
     }
     GQL
