@@ -38,8 +38,10 @@ module PlanitBe
     config.middleware.use Rack::Cors do
       allow do
         origins '*'
+        # origins 'https://planit-earth.netlify.app'
         resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :options],
-        credentials: true
+        # credentials: true
+        # replace line 40 with 41+43 before codefreeze
       end
     end
   end
