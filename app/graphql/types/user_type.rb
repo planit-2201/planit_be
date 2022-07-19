@@ -11,7 +11,8 @@ module Types
     field :thirtyday_average_shower_time, Float
     field :weekly_average_water_usage, Float
     field :thirtyday_average_water_usage, Float
-
+    field :thirtyday_average_bag_count, Float
+    field :thirtyday_average_bag_usage, Float
 
     def weekly_average_shower_time
       object.weekly_average_shower_time
@@ -27,6 +28,14 @@ module Types
 
     def thirtyday_average_water_usage
       object.thirtyday_average_water_usage
+    end
+
+    def thirtyday_average_bag_count
+      object.thirtyday_average_bag_count
+    end
+
+    def thirtyday_average_bag_usage
+      object.thirtyday_average_bag_usage
     end
   end
 end
