@@ -7,11 +7,12 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "https://planit-earth.netlify.app"
-
+    # origins "https://planit-earth.netlify.app"
+    origins "*"
     resource "*",
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      credentials: true
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      # credentials: true
+      # replace line 11 with 10+15 and comma after line 14
   end
 end
