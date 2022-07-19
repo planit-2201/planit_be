@@ -186,5 +186,42 @@ RSpec.describe User, type: :model do
 
       expect(user.thirtyday_average_bag_count("2022-07-11")).to eq(4.0)
     end
+    
+    it '.returns 30 day average straw count' do
+      user = create(:user, username: "Mike Dao", flowrate: 1.8)
+      user.daily_records.create(date: "2022-07-01", straw_count: 33)
+      user.daily_records.create(date: "2022-07-02", straw_count: 4)
+      user.daily_records.create(date: "2022-07-03", straw_count: 1)
+      user.daily_records.create(date: "2022-07-04", straw_count: 2)
+      user.daily_records.create(date: "2022-07-05", straw_count: 5)
+      user.daily_records.create(date: "2022-07-06", straw_count: 4)
+      user.daily_records.create(date: "2022-07-07", straw_count: 3)
+      user.daily_records.create(date: "2022-07-08", straw_count: 5)
+      user.daily_records.create(date: "2022-07-09", straw_count: 3)
+      user.daily_records.create(date: "2022-07-10", straw_count: 4)
+      user.daily_records.create(date: "2022-07-11", straw_count: 1)
+      user.daily_records.create(date: "2022-06-12", straw_count: 2)
+      user.daily_records.create(date: "2022-06-13", straw_count: 5)
+      user.daily_records.create(date: "2022-06-14", straw_count: 4)
+      user.daily_records.create(date: "2022-06-15", straw_count: 3)
+      user.daily_records.create(date: "2022-06-16", straw_count: 3)
+      user.daily_records.create(date: "2022-06-17", straw_count: 3)
+      user.daily_records.create(date: "2022-06-18", straw_count: 4)
+      user.daily_records.create(date: "2022-06-19", straw_count: 1)
+      user.daily_records.create(date: "2022-06-20", straw_count: 2)
+      user.daily_records.create(date: "2022-06-21", straw_count: 5)
+      user.daily_records.create(date: "2022-06-22", straw_count: 4)
+      user.daily_records.create(date: "2022-06-23", straw_count: 3)
+      user.daily_records.create(date: "2022-06-24", straw_count: 5)
+      user.daily_records.create(date: "2022-06-25", straw_count: 6)
+      user.daily_records.create(date: "2022-06-26", straw_count: 3)
+      user.daily_records.create(date: "2022-06-27", straw_count: 4)
+      user.daily_records.create(date: "2022-06-28", straw_count: 1)
+      user.daily_records.create(date: "2022-06-29", straw_count: 2)
+      user.daily_records.create(date: "2022-06-30", straw_count: 5)
+      user.daily_records.create(date: "2022-06-11", straw_count: 100000)
+
+      expect(user.thirtyday_average_straw_count("2022-07-11")).to eq(4.0)
+    end
   end
 end
