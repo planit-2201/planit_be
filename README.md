@@ -19,7 +19,7 @@
 
 ## Deployed App
 
-Vist the deployed Paired app at [https://www.paired.tech](https://www.paired.tech).
+Vist the deployed PlanIt app at [https://planit-earth.netlify.app/](https://planit-earth.netlify.app/)
 
 ## Local Deployment
 
@@ -27,19 +27,17 @@ See this [Deployment Guide](local_setup_guide.md) for detailed instructions on h
 
 ## Dev Team
 
-Paired 2.0's dev team:
- - Carleigh Crockett ([@Capleugh](https://github.com/Capleugh), [LinkedIn](https://www.linkedin.com/in/carleighcrockett/))
- - Daniel Frampton ([@DanielEFrampton](https://github.com/DanielEFrampton), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
- - Matt Simon ([@msimon42](https://github.com/msimon42), [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
- - Rebecca Robran ([@rer7891](https://github.com/rer7891), [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
+PlanIt's Back-End dev team:
+ - Kim Guo ([@kg-byte](https://github.com/kg-byte), [LinkedIn](https://www.linkedin.com/in/xiaole-guo-5331b4158/))
+ - Craig Cardwell ([@Eagerlearn](https://github.com/Eagerlearn), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
+ - Chris Romero ([@CLRM1](https://github.com/CLRM1), [LinkedIn](https://www.linkedin.com/in/chris-romero-419702122/))
+ - Scott Sullivan ([@ScottSullivanltd](https://github.com/ScottSullivanltd), [LinkedIn](https://linkedin.com/in/scott-sullivan-9394204a/))
 
-Rock & Pebble feature's dev team:
- - Rebecca Robran, BE/FE ([@rer7891](https://github.com/rer7891), [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
- - Rachel Lew, BE ([@rlew421](https://github.com/rlew421), [LinkedIn](https://www.linkedin.com/in/rlew/))
- - Matt Simon, BE ([@msimon42](https://github.com/msimon42), [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
- - Linda Le, BE ([@linda-le1](https://github.com/linda-le1), [LinkedIn](https://www.linkedin.com/in/linda-lewang/))
- - Daniel Frampton, BE/FE ([@DanielEFrampton](https://github.com/DanielEFrampton), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
- - Caleb Haizlett, FE ([@CHaiz15](https://github.com/CHaiz15), [LinkedIn](https://www.linkedin.com/in/caleb-haizlett/))
+PlanIt's Front-End dev team:
+ - Olivia Whitehead ([@whiteheadol](https://github.com/whiteheadol), [LinkedIn](https://www.linkedin.com/in/-olivia-whitehead/))
+ - Rachel Hill ([@rachellhill](https://github.com/rachellhill), [LinkedIn](https://www.linkedin.com/in/rlew/))
+ - Nikki Balmoori ([@nbalmoori](https://github.com/nbalmoori), [LinkedIn](https://www.linkedin.com/in/nbalmoori/))
+ - Zachary Saile ([@zwsaile](https://github.com/zwsaile), [LinkedIn](https://www.linkedin.com/in/zachary-saile/))
 
 ## Description
 
