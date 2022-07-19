@@ -148,7 +148,8 @@ RSpec.describe User, type: :model do
       user.daily_records.create(date: "2022-06-11", bottle_count: 1000)
 
       expect(user.thirtyday_average_bottle_count("2022-07-11")).to eq(3)
-
+    end
+    
     it '.returns 30 day average bag count' do
       user = create(:user, username: "Mike Dao", flowrate: 1.8)
       user.daily_records.create(date: "2022-07-01", bag_count: 33)
