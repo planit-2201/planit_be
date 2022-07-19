@@ -1,6 +1,6 @@
 # README
 
-# Paired Back-End
+# PlanIt Back-End
 
 ## Table of Contents
 
