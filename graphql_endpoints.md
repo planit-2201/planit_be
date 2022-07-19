@@ -20,7 +20,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
     thirtydayAverageWaterUsage
     thirtydayAverageBottleCount
     thirtydayAverageBagCount
-    thirtydayAverageStrawCount
+    thirtydayUserAverageStrawCount
   }
 }
 ```
@@ -39,7 +39,7 @@ Our GraphQL endpoints have two categories: queries and mutations.
       "thirtydayAverageWaterUsage": 17.04
       "thirtydayAverageBottleCount": 4.0
       "thirtydayAverageBagCount": 3.0
-      "thirtydayAverageStrawCount": 6.0
+      "thirtydayUserAverageStrawCount": 6.0
     }
   }
 }
