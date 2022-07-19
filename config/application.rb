@@ -38,7 +38,8 @@ module PlanitBe
     config.middleware.use Rack::Cors do
       allow do
         origins 'https://planit-earth.netlify.app/'
-        resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :options]
+        resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :options],
+        credentials: true
       end
     end
   end
