@@ -39,9 +39,9 @@ module PlanitBe
       allow do
         origins '*'
         # origins 'https://planit-earth.netlify.app'
-        resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :options],
+        resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :options]
         # credentials: true
-        # replace line 40 with 41+43 before codefreeze
+        # replace line 40 with 41+43 before codefreeze + comma affter line 42
       end
     end
   end
