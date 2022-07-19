@@ -18,6 +18,9 @@ Our GraphQL endpoints have two categories: queries and mutations.
     weeklyAverageWaterUsage
     thirtydayAverageShowerTime
     thirtydayAverageWaterUsage
+    thirtydayAverageBottleCount
+    thirtydayAverageBagCount
+    thirtydayAverageStrawCount
   }
 }
 ```
@@ -34,6 +37,9 @@ Our GraphQL endpoints have two categories: queries and mutations.
       "weeklyAverageWaterUsage": 16.05
       "thirtydayAverageShowerTime": 568.0
       "thirtydayAverageWaterUsage": 17.04
+      "thirtydayAverageBottleCount": 4.0
+      "thirtydayAverageBagCount": 3.0
+      "thirtydayAverageStrawCount": 6.0
     }
   }
 }
@@ -142,9 +148,9 @@ users = create_list(:user, 5, flowrate: 2.1)
 end_date = DateTime.parse(Time.now.strftime("%Y-%m-%d"))
 dates = ((end_date-29)..end_date).map {|d| d.strftime "%Y-%m-%d"}
 users.each do |user|
-  create(:daily_record, user_id: user.id, date: dates[0], shower_time: 100)
-  create(:daily_record, user_id: user.id, date: dates[10], shower_time: 200)
-  create(:daily_record, user_id: user.id, date: dates[20], shower_time: 300)
+  create(:daily_record, user_id: user.id, date: dates[0], shower_time: 100, bottle_count: 3, bag_count: 2, straw_count: 1)
+  create(:daily_record, user_id: user.id, date: dates[10], shower_time: 200, bottle_count: 4, bag_count: 3, straw_count: 2)
+  create(:daily_record, user_id: user.id, date: dates[20], shower_time: 300, bottle_count: 5, bag_count: 4, straw_count: 3)
 end
 ```
 
@@ -155,6 +161,9 @@ query {
     getAppData {
         userCount
         thirtydayAverageWaterUsage
+        thirtydayAverageBottleCount
+        thirtydayAverageBagCount
+        thirtydayAverageStrawCount
     }
  }
 ```
@@ -167,6 +176,9 @@ query {
     "getAppData": {
         "userCount": 5
         "thirtydayAverageWaterUsage": 7.0
+        "thirtydayAverageBottleCount": 4.0
+        "thirtydayAverageBagCount": 3.0
+        "thirtydayAverageStrawCount": 2.0
      }
    }
 }
