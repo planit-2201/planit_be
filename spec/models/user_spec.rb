@@ -148,6 +148,42 @@ RSpec.describe User, type: :model do
       user.daily_records.create(date: "2022-06-11", bottle_count: 1000)
 
       expect(user.thirtyday_average_bottle_count("2022-07-11")).to eq(3)
+
+    it '.returns 30 day average bag count' do
+      user = create(:user, username: "Mike Dao", flowrate: 1.8)
+      user.daily_records.create(date: "2022-07-01", bag_count: 33)
+      user.daily_records.create(date: "2022-07-02", bag_count: 4)
+      user.daily_records.create(date: "2022-07-03", bag_count: 1)
+      user.daily_records.create(date: "2022-07-04", bag_count: 2)
+      user.daily_records.create(date: "2022-07-05", bag_count: 5)
+      user.daily_records.create(date: "2022-07-06", bag_count: 4)
+      user.daily_records.create(date: "2022-07-07", bag_count: 3)
+      user.daily_records.create(date: "2022-07-08", bag_count: 5)
+      user.daily_records.create(date: "2022-07-09", bag_count: 3)
+      user.daily_records.create(date: "2022-07-10", bag_count: 4)
+      user.daily_records.create(date: "2022-07-11", bag_count: 1)
+      user.daily_records.create(date: "2022-06-12", bag_count: 2)
+      user.daily_records.create(date: "2022-06-13", bag_count: 5)
+      user.daily_records.create(date: "2022-06-14", bag_count: 4)
+      user.daily_records.create(date: "2022-06-15", bag_count: 3)
+      user.daily_records.create(date: "2022-06-16", bag_count: 3)
+      user.daily_records.create(date: "2022-06-17", bag_count: 3)
+      user.daily_records.create(date: "2022-06-18", bag_count: 4)
+      user.daily_records.create(date: "2022-06-19", bag_count: 1)
+      user.daily_records.create(date: "2022-06-20", bag_count: 2)
+      user.daily_records.create(date: "2022-06-21", bag_count: 5)
+      user.daily_records.create(date: "2022-06-22", bag_count: 4)
+      user.daily_records.create(date: "2022-06-23", bag_count: 3)
+      user.daily_records.create(date: "2022-06-24", bag_count: 5)
+      user.daily_records.create(date: "2022-06-25", bag_count: 6)
+      user.daily_records.create(date: "2022-06-26", bag_count: 3)
+      user.daily_records.create(date: "2022-06-27", bag_count: 4)
+      user.daily_records.create(date: "2022-06-28", bag_count: 1)
+      user.daily_records.create(date: "2022-06-29", bag_count: 2)
+      user.daily_records.create(date: "2022-06-30", bag_count: 5)
+      user.daily_records.create(date: "2022-06-11", bag_count: 100000)
+
+      expect(user.thirtyday_average_bag_count("2022-07-11")).to eq(4.0)
     end
   end
 end

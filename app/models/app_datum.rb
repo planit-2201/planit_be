@@ -18,6 +18,16 @@ class AppDatum < ApplicationRecord
     DailyRecord.where(date: range).average(:bottle_count).to_f
   end
 
+  def thirtyday_average_straw_count(end_date = Time.now.strftime("%Y-%m-%d"))
+    range = find_thirtyday_range(end_date)
+    DailyRecord.where(date: range).average(:straw_count).to_f
+  end
+  
+  def thirtyday_average_bag_count(end_date = Time.now.strftime("%Y-%m-%d"))
+    range = find_thirtyday_range(end_date)
+    DailyRecord.where(date: range).average(:bag_count).to_f
+  end
+
   private
   def find_thirtyday_range(date)
     end_date = DateTime.parse(date)

@@ -36,7 +36,7 @@ module Types
       DailyRecord.where('user_id = ? AND date=?', user_id, date)
     end
 
-    field :get_app_data, Types::AppDataType, null:false, description: 'Returns total number of users and total average bottle count in app'
+    field :get_app_data, Types::AppDataType, null:false, description: 'Returns total number of users and total average bottle, straw, and bag counts in app'
 
     def get_app_data
       if AppDatum.first
