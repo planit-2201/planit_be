@@ -35,7 +35,7 @@ class User < ApplicationRecord
 
   def thirtyday_average_straw_count(end_date = Time.now.strftime("%Y-%m-%d"))
     range = find_thirtyday_range(end_date)
-    (daily_records.where(date: range)).average(:straw_count).to_f
+    (daily_records.where(date: range)).average(:straw_count).to_f.round
   end
 
   private
