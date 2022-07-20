@@ -48,3 +48,9 @@ open coverage/index.html
 
 ### Access PlanIt Back-end server via Postman virtual environment
 
+* [Click this link](https://www.getpostman.com/collections/67de23ef9bd0dfaa8ecb)
+* Copy the entire text
+* Open Postman, select "Import" from top left of page, then "Raw text" from the top line
+* Paste the entire text
+* Click "Continue", then "Import"
+* Check out the environment examples - we have a `dev` environment with direct calls to our Heroku BE, and a `PlanIt Mock` environment which utilizes a Postman mock server!
